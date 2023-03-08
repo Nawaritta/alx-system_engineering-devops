@@ -1,6 +1,0 @@
-#!/bin/bash
-echo "$ /The absolute path name of the current working directory"
-path=$(pwd)
-echo "$path"
-
-echo "$"
