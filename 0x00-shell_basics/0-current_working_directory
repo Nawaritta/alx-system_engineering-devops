@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e "\n$/The absolute path name of the current working directory\n\n/root$(pwd)\n\n$\n"
+echo -e "/root$(pwd)\n"
