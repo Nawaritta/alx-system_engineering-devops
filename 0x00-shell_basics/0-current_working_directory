@@ -1,10 +1,2 @@
 #!/bin/bash
-echo "$ /The absolute path name of the current working directory"
-path=$(pwd)
-echo $path
-while [ "$DIR" != "/" ]; do
-    cd ..
-    path=$(pwd)
-    echo $path
-done
-echo "$"
+echo -e "\n$/The absolute path name of the current working directory\n\n/root$(pwd)\n\n$\n"
