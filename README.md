@@ -1,1 +1,1 @@
-This repo contain 15 scripts
+This repo is bout Bash projects
