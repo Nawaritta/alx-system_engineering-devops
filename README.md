@@ -1,1 +1,1 @@
-0-alias: Create a script that creates an alias.
+This repo is bout Bash projects
