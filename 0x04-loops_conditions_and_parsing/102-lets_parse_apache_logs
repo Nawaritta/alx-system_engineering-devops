@@ -1,1 +1,5 @@
 #!/usr/bin/env bash
+# Parses Apache log access files.
+
+log_file="apache-access.log"
+awk '{print $1, $9}' "$log_file"

@@ -3,10 +3,6 @@
 
 passwd_file="/etc/passwd"
 
-if [ -e "$passwd_file" ]; then
-    IFS=":"
-    while read -r username x uid gid info homedir shell; do
-	echo "$username:$uid:$homedir"
-    done < "$passwd_file"
-    unset IFS
-fi
+while read LINE; do
+    echo "$LINE" | cut -f 1,3,6 -d ':'
+done < $passwd_file
