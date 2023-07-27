@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Iterates 10 times and displays:"bad luck" for the 4th,"good luck" for the 8th,
+# and "Best School" for the other loop iterations
 
 n=1
 

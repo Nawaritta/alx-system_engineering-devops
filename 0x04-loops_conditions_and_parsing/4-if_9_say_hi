@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
+# displays "Best School" 10 times and "Hi" before the last one.
 
 n=1
-
 while [ $n -le 10 ]
 do
     echo "Best School"

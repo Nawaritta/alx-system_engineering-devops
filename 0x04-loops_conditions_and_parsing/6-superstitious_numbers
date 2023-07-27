@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Displays numbers from 1 to 20 except for 4, 9 and 17 writes "bad luck from"
+# followed by the country believing the number unlucky.
 
 n=1
 

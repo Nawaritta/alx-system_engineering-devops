@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Prints "Best school" 10 times using until
+# displays "Best school" 10 times using until
 n=0
 
 until [ $n -ge 10 ]
