@@ -1,6 +1,6 @@
 #!/bin/env bash
-
 #  displays the content of the file /etc/passwd.
+
 passwd_file="/etc/passwd"
 
 if [ -e "$passwd_file" ]; then
