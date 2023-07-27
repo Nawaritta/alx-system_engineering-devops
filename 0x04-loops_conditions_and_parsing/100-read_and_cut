@@ -1,0 +1,12 @@
+#!/bin/env bash
+
+#  displays the content of the file /etc/passwd.
+passwd_file="/etc/passwd"
+
+if [ -e "$passwd_file" ]; then
+    IFS=":"
+    while read -r username x uid gid info homedir shell; do
+	echo "$username:$uid:$homedir"
+    done < "$passwd_file"
+    unset IFS
+fi
