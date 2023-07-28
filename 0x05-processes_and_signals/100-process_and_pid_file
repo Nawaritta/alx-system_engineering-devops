@@ -4,11 +4,11 @@
 echo $$ > "/var/run/myscript.pid"
 cleanup_and_exit()
 {
+    echo 'I hate the kill command'
     rm -f "/var/run/myscript.pid"
     exit
 }
 trap "echo 'Y U no love me?!'" SIGINT
-trap "echo 'I hate the kill command'; exit" SIGTERM
 trap 'cleanup_and_exit' SIGQUIT SIGTERM
 
 while ((1)); do
