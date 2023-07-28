@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# stoppes the previous infinit script loop wihtout using Kill or Killall
+pkill -f ./7-highlander
