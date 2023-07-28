@@ -4,5 +4,7 @@
 passwd_file="/etc/passwd"
 
 while IFS=":" read -r user _ uid gid _ home shell; do
-    echo "The user $user is part of the $gid gang, lives in $home, and rides $shell. $uid's place is protected by the passcode $user, more info about the user here: $uid $user"
+    echo -e "The user $user is part of the $gid gang, lives in $home, and rides"\
+	 "$shell.\n$uid's place is protected by the passcode $user, more info"\
+	 " about the user here: $uid $user"
 done < "$passwd_file"
