@@ -1,8 +1,8 @@
 #!/bin/env bash
 # displays the content of the file /etc/passwd.
 
-passwd_file=/etc/passwd
+passwd_file="/etc/passwd"
 
-while read LINE; do
+while IFS= read -r LINE; do
     echo "$LINE" | cut -f 1,3,6 -d ':'
-done < $passwd_file
+done < "$passwd_file"
