@@ -4,8 +4,7 @@
 passwd_file="/etc/passwd"
 
 IFS=":"
-
 while read -r username _ uid gid info homedir shell; do
     echo "The user $username is part of the $gid gang, lives in $homedir, and rides $shell."
-    echo "$uid's place is protected by the passcode $username, more info about the user here: $uid $username"
+    echo "$uid's place is protected by the passcode $info, more info about the user here: $uid $info"
 done < "$passwd_file"
