@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Function to remove the PID file and terminate the script
+
+echo $$ > "/var/run/myscript.pid"
+cleanup_and_exit()
+{
+    rm -f "/var/run/myscript.pid"
+    exit 0
+}
+trap "echo 'Y U no love me?!'" SIGINT
+trap "echo 'sigterm_handler'" SIGTERM
+trap 'cleanup_and_exit' SIGQUIT SIGTERM
+
+while true; do
+    echo "To infinity and beyond"
+    sleep 1
+done
