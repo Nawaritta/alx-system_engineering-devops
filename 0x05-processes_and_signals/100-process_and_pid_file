@@ -8,10 +8,10 @@ cleanup_and_exit()
     exit 0
 }
 trap "echo 'Y U no love me?!'" SIGINT
-trap "echo 'sigterm_handler'" SIGTERM
+trap "echo 'I hate the kill command'" SIGTERM
 trap 'cleanup_and_exit' SIGQUIT SIGTERM
 
 while true; do
     echo "To infinity and beyond"
-    sleep 2
+    sleep 1
 done
