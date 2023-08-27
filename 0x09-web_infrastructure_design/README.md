@@ -12,8 +12,6 @@ For this project, students are expected to look at these concepts:
  - Server
  - Resources
 
-[![](https://youtu.be/lQNEW76KdYg)]
-
 ## Read or watch:
 
  - Network basics concept page
