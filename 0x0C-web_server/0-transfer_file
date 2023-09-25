@@ -7,9 +7,9 @@ then
     exit 1
 fi
 
-fpath= $1
-ip= $2
-uname= $3
-ssh_key= $4
+fpath=$1
+ip=$2
+uname=$3
+ssh_key=$4
 
 scp -i "$ssh_key" -o StrictHostKeyChecking=no "$fpath" "$uname@$ip":~/
