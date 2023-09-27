@@ -5,7 +5,6 @@ sudo apt-get install -y nginx
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # The Redirection 301 Moved Permanently
-
 replacement_str="server_name _;\n\trewrite ^\/redirect_me https:\/\/google.com permanent;"
 sudo sed -i "s/server_name _;/$replacement_str/" /etc/nginx/sites-enabled/default
 
