@@ -6,14 +6,11 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # The Redirection 301 Moved Permanently
-
-replacement_str="\n\tserver_name _;\n\trewrite ^\/redirect_me https:\/\/google.com 301;"
+replacement_str="server_name _;\n\trewrite ^\/redirect_me https:\/\/google.com 301;"
 sudo sed -i "s/server_name _;/$replacement_str/" /etc/nginx/sites-enabled/default
 
 # Customized 404 Error message
-
-echo "Ceci n'est pas une page" | sudo /var/www/html/404.html
-
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 str="listen 80 default_server"
 replacement_str="$str;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
 sudo sed -i "s#$str;#$replacement_str#" /etc/nginx/sites-enabled/default
