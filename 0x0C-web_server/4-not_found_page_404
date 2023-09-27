@@ -6,7 +6,7 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # The Redirection 301 Moved Permanently
-replacement_str="server_name _;\n\trewrite ^\/redirect_me https:\/\/google.com 301;"
+replacement_str="server_name _;\n\trewrite ^\/redirect_me https:\/\/google.com permanent;"
 sudo sed -i "s/server_name _;/$replacement_str/" /etc/nginx/sites-enabled/default
 
 # Customized 404 Error message
