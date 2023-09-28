@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Starts the Apache HTTP Server service
+sudo service apache2 start
