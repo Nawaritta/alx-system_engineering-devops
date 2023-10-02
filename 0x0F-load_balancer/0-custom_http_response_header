@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 #updating packages
 sudo apt-get update
 
@@ -7,7 +6,7 @@ sudo apt-get update
 sudo apt-get update
 sudo apt-get install -y nginx
 
-# index page
+# The index page
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # The Redirection 301 Moved Permanently
@@ -22,6 +21,5 @@ echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 sudo sed -i "server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
 
 # check for syntax errors & restart
-
 sudo nginx -t
 sudo service nginx restart
