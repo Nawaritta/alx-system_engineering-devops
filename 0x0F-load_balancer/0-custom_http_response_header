@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+#updating packages
+sudo apt-get update
+
+# Installs nginx web server
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# index page
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# The Redirection 301 Moved Permanently
+replacement_str="\n\trewrite ^\/redirect_me https:\/\/google.com permanent;"
+
+sudo sed -i "s/server_name _;/$replacement_str/" /etc/nginx/sites-enabled/default
+
+# Customized 404 Error message
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+# http response header
+sudo sed -i "server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+
+# check for syntax errors & restart
+
+sudo nginx -t
+sudo service nginx restart
