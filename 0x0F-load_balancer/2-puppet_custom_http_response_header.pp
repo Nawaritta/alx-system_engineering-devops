@@ -9,9 +9,8 @@ exec { 'update':
   enable => true,
 } -> file_line { 'http_header':
   path  => '/etc/nginx/nginx.conf',
- line  => 'add_header X-Served-By $hostname;',
   match => 'http {',
-  before => Exec['restart_nginx'],
-} -> exec { 'restart_nginx':
+  line  => "http {\n\tadd_header X-Served-By \"${hostname}\";",
+ } -> exec { 'restart_nginx':
   command => '/usr/sbin/service nginx restart',
 }
