@@ -2,6 +2,7 @@
 # update the packages & Installs nginx web server
 sudo apt-get update
 sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
 
 # The index page
 echo "Hello World!" | sudo tee /var/www/html/index.html
@@ -14,9 +15,9 @@ sudo sed -i "s/server_name _;/$replacement_str/" /etc/nginx/sites-enabled/defaul
 # Customized 404 Error message
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
-#str="listen 80 default_server"
-#replacement_str="$str;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
-#sudo sed -i "s#$str;#$replacement_str#" /etc/nginx/sites-enabled/default
+str="listen 80 default_server"
+replacement_str="$str;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s#$str;#$replacement_str#" /etc/nginx/sites-enabled/default
 
 # http response header
 sudo sed -i "server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
