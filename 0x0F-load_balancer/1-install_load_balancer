@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Install and configure HAProxy
+
+# Update package repositories
+sudo apt-get -y update
+
+# Install HAProxy
+sudo apt-get -y install haproxy
+
+# Edit configuration file
+server_config="
+frontend Nawaritta_frontend
+    bind *:80
+    mode http
+    default_backend Nawaritta_backend
+
+backend Nawaritta_backend
+    balance roundrobin
+    server 389328-web-01 54.237.40.94:80 check
+    server 389328-web-02 54.164.126.155:80 check
+"
+
+# Append the configuration to HAProxy config file
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# Enable HAProxy service
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+# Run HAProxy to check syntax errors in the config file
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+
+# Check for syntax errors and restart HAProxy
+sudo service haproxy restart
