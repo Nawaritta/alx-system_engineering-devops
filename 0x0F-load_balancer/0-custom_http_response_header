@@ -22,6 +22,4 @@ sudo sed -i "s#$str;#$replacement_str#" /etc/nginx/sites-enabled/default
 # http response header
 sudo sed -i "server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
 
-# check for syntax errors & restart
-sudo nginx -t
 sudo service nginx restart
