@@ -41,7 +41,7 @@ frontend nawaritta_frontend
     redirect scheme https if !{ ssl_fc }
     default_backend nawaritta_backend
 
-backend http_backend
+backend nawaritta_backend
     # Backend configuration for HTTP traffic
     balance roundrobin
     server 389328-web-01 54.237.40.94:80 check
