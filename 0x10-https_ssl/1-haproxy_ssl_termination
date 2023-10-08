@@ -50,11 +50,5 @@ frontend https_frontend
 backend http_backend
     # Backend configuration for HTTP traffic
     balance roundrobin
-    server 389328-web-01 54.237.40.94 check
-    server 389328-web-02 54.164.126.155 check
-
-backend https_backend
-    # Backend configuration for HTTPS traffic
-    balance roundrobin
-    server 389328-web-01 54.237.40.94 check ssl verify none
-    server 389328-web-02 54.164.126.155 check ssl verify none
+    server 389328-web-01 54.237.40.94:80 check
+    server 389328-web-02 54.164.126.155:80 check
