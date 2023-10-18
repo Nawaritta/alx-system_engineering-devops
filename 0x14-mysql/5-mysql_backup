@@ -3,7 +3,7 @@
 
 USER="root"
 PASSCODE="$1"
-DATE=$(date +\%d-\%m-\%Y)
+DATE=$(date +%d-%m-%Y)
 
 mysqldump -u$USER -p$PASSCODE --all-databases > backup.sql
 tar -cvzf $DATE.tar.gz backup.sql
