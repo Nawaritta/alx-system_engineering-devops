@@ -10,11 +10,13 @@ from sys import argv
 if __name__ == '__main__':
 
     userId = argv[1]
-    user_url = "https://jsonplaceholder.typicode.com/users/" + userId
+    REST_API = 'https://jsonplaceholder.typicode.com'
+    user_url = REST_API + "/users/{}".format(userId)
+
     todo_url = user_url + "/todos"
 
-    user_record = get(user_url)
-    username = user_record.json().get('username')
+    user_record = get(user_url).json()
+    username = user_record.get('username')
 
     todos = get(todo_url).json()
 
