@@ -30,5 +30,5 @@ if __name__ == '__main__':
             }
             todos_data.append(todo_data)
 
-            with open('todo_all_employees.json', 'w') as f:
+            with open('todo_all_employees.json', 'a') as f:
                 dump({userId: todos_data}, f)
