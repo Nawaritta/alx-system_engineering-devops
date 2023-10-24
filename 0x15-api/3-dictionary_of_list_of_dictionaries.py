@@ -13,7 +13,6 @@ if __name__ == '__main__':
     users_url = REST_API + "/users/"
     all_users = get(users_url).json()
 
-
     for user in all_users:
 
         userId = user.get('id')
@@ -28,7 +27,7 @@ if __name__ == '__main__':
                 "task": todo.get('title'),
                 "completed": todo.get('completed'),
                 "username": username
-        }
+            }
             todos_data.append(todo_data)
 
         with open('todo_all_employees.json', 'w') as f:
