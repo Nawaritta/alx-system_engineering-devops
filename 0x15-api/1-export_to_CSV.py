@@ -2,22 +2,24 @@
 """
 Exports data in the CSV format
 """
+
 from requests import get
 from sys import argv
 
-if __name__ == '__main':
+
+if __name__ == '__main__':
 
     userId = argv[1]
-    REST_API = 'https://jsonplaceholder.typicode.com'
-    user_url = REST_API + "/users/{}".format(userId)
-    todos_url = user_url + "/todos"
+    user_url = "https://jsonplaceholder.typicode.com/users/" + userId
+    todo_url = user_url + "/todos"
 
-    user_record = get(user_url).json()
-    todos = get(todos_url).json()
-    username = user_record.get("username")
+    user_record = get(user_url)
+    username = user_record.json().get('username')
 
+    todos = get(todo_url).json()
 
     with open('{}.csv'.format(userId), 'w') as file:
         for todo in todos:
-            file.write('"{}","{}","{}","{}"\n'.format(
-                userId, username, todo.get('completed'), todo.get('title')))
+            file.write('"{}","{}","{}","{}"\n'
+                       .format(userId, username, todo.get('completed'),
+                               todo.get('title')))
