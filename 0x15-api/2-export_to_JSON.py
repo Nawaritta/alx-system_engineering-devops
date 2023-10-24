@@ -28,4 +28,4 @@ if __name__ == '__main__':
         todos_data.append(todo_data)
 
     with open('{}.json'.format(userId), 'w') as f:
-        dump(todos_data, f)
+        dump({userId: todos_data}, f)
