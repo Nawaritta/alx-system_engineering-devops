@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Exports data in the JSON format.
+Exports all employees data in the JSON format.
 """
 
 from json import dump
@@ -13,6 +13,7 @@ if __name__ == '__main__':
     users_url = REST_API + "/users/"
     all_users = get(users_url).json()
 
+    all_data = {}
     for user in all_users:
 
         userId = user.get('id')
@@ -30,5 +31,7 @@ if __name__ == '__main__':
             }
             todos_data.append(todo_data)
 
-            with open('todo_all_employees.json', 'a') as f:
-                dump({userId: todos_data}, f)
+        all_data.update({user.get("id"): todos_data})
+
+    with open('todo_all_employees.json', 'w') as f:
+        dump(all_data, f)
