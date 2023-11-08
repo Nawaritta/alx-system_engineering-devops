@@ -38,7 +38,6 @@ def recurse(subreddit, dictionary, after=None):
     return recurse(subreddit, dictionary, after=after)
 
 
-
 def count_words(subreddit, word_list):
     """prints a sorted count of given keywords"""
 
