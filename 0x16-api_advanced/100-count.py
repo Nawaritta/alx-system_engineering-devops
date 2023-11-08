@@ -19,7 +19,7 @@ def recurse(subreddit, dictionary, after=None):
     response = requests.get(url, headers=headers,
                             params={'after': after}, allow_redirects=False)
 
-    if response.status_code == 404:
+    if response.status_code != 200:
         return None
 
     data = response.json()
