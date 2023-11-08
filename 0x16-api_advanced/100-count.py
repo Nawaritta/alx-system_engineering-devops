@@ -49,3 +49,5 @@ def count_words(subreddit, word_list):
     for word, count in sorted_words:
         if count != 0:
             print('{}: {}'.format(word, count))
+        else:
+            print('')
