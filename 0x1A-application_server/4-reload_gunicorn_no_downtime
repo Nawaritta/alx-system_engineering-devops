@@ -2,3 +2,4 @@
 # script to reload Gunicorn in a graceful way
 if pgrep gunicorn > /dev/null; then
      sudo pkill -HUP gunicorn
+fi
